@@ -35,8 +35,12 @@ require(['$api/audio', '$api/models'], function(audio, models) {
     h = l * vz.bh;*/
 				bars[ i ].style.height = getHeight( wave.left[ i ] ) + '%';
 				bars[ num_bands * 2 - i - 1 ].style.height = getHeight( wave.right[ i ] ) + '%';
-				if ( i === 4 ) slices[0].style.webkitTransform = 'rotate(13deg) skewY(-27deg) scale(' + getScale( wave.left[ i ] ) + ')';
-				if ( i === 10 ) slices[1].style.webkitTransform = 'rotate(50deg) skewY(-27deg) scale(' + getScale( wave.left[ i ] ) + ')';
+				if ( i === 2 ) slices[0].style.webkitTransform = 'rotate(0deg) skewY(-27deg) scale(' + getScale( wave.left[ i ] ) + ')';
+				if ( i === 4 ) slices[1].style.webkitTransform = 'rotate(120deg) skewY(-27deg) scale(' + getScale( wave.left[ i ] ) + ')';
+				if ( i === 6 ) slices[2].style.webkitTransform = 'rotate(240deg) skewY(-27deg) scale(' + getScale( wave.left[ i ] ) + ')';
+				if ( i === 8 ) slices[3].style.webkitTransform = 'rotate(0deg) skewY(-27deg) scale(' + getScale( wave.left[ i ] ) + ')';
+				if ( i === 10 ) slices[4].style.webkitTransform = 'rotate(120deg) skewY(-27deg) scale(' + getScale( wave.left[ i ] ) + ')';
+				if ( i === 12 ) slices[5].style.webkitTransform = 'rotate(240deg) skewY(-27deg) scale(' + getScale( wave.left[ i ] ) + ')';
 		}
 	});
 });

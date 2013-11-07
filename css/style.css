@@ -16,35 +16,48 @@ html, body {
 	background-image: linear-gradient(0, #f06, yellow);
 	background-size: 100% 200px;
 	border: 5px solid #000;
-	box-shadow: 0 0 1px 1px rgba(255,255,255,0.3);
+	box-shadow: 0 2px 1px 1px rgba(255,255,255,0.2);
 	box-sizing: border-box;
 	transition: height 20ms;
 }
 
 
 
-
 #pie {
-	position: relative;
-	margin: 1em auto;
+	position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0; 
+	margin: auto;
+}
+
+.pie {
+	position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0; 
+	margin: auto;
 	padding: 0;
 	width: 32em; height: 32em;
 	border-radius: 50%;
 	list-style: none;
-	-webkit-animation: spin 4s linear;
 	-webkit-animation-iteration-count: infinite;
 }
 .slice {
-	/* remove slash at the end of this line to see full slice contents */
-	overflow: hidden; /**/
+	overflow: hidden;
 	position: absolute;
 	top: 0; right: 0;
 	width: 50%; height: 50%;
 	-webkit-transform-origin: 0% 100%;
 	transition: webkit-tranform 20ms;
 }
-.slice:nth-child(1) {
-	-webkit-transform: rotate(13deg) skewY(-27deg);
+
+.pie:nth-child(1) {
+ 	-webkit-animation: spin 10s linear infinite;
+}
+
+.pie:nth-child(2) {
+	-webkit-animation: spin 13s linear infinite;
+}
+
+.pie .slice:nth-child(1) {
+	-webkit-transform: rotate(0deg) skewY(-27deg);
 	/* angle between vertical axis (12 o'clock) 
 							and start of the slice; 
 							change it to see how the slice changes */
@@ -55,8 +68,12 @@ html, body {
 	   90deg - 50deg = 40deg => skewY(-40deg) */
 }
 
-.slice:nth-child(2) {
-	-webkit-transform: rotate(76deg) skewY(-27deg);
+.pie .slice:nth-child(2) {
+	-webkit-transform: rotate(120deg) skewY(-27deg);
+}
+
+.pie .slice:nth-child(3) {
+	-webkit-transform: rotate(240deg) skewY(-27deg);
 }
 
 
@@ -65,7 +82,8 @@ html, body {
 	left: -100%;
 	width: 200%; height: 200%;
 	border-radius: 50%;
-	background: rgba(100,100,255,0.4);
+	background: linear-gradient(0, rgba(255,255,255,0), rgba(100,150,255,0.4));
+	background-size: 100% 200px;
 	text-align: center;
 }
 .slice/*:first-child*/ .slice-contents {
@@ -92,6 +110,94 @@ html, body {
 
 
 
+/*  background anim */
+body { 
+}
+
+#stars,
+#stars-2,
+#small-stars,
+#small-stars-2 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 600px;
+	height: 600px;
+	margin: -300px 0 0 -300px;
+	background: url(../images/stars-large.png) no-repeat center center;
+	-webkit-animation-name: starsLarge;
+	-webkit-animation-duration: 60s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes starsLarge {
+	from {
+		-webkit-transform: rotate(0deg) scale(3);
+		opacity: .1;
+	}
+	to {
+		-webkit-transform: rotate(360deg) scale(.5);
+		opacity: 0;
+	}
+}
+
+#stars-2 {
+	-webkit-animation-name: starsLargeAlt;
+	-webkit-animation-duration: 45s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes starsLargeAlt {
+	from {
+		-webkit-transform: rotate(180deg) scale(3);
+		opacity: .25;
+	}
+	to {
+		-webkit-transform: rotate(360deg) scale(.5);
+		opacity: 0;
+	}
+}
+
+#small-stars,
+#small-stars-2 {
+	background: url(../images/stars-small.png) no-repeat center center;
+	-webkit-animation-duration: 15s;
+	-webkit-animation-name: starsSmall;
+}
+
+#small-stars-2 {
+	-webkit-animation-name: starsSmallAlt;
+	-webkit-animation-duration: 30s;
+}
+
+@-webkit-keyframes starsSmall {
+	from {
+		-webkit-transform: rotate(360deg) scale(3);
+		opacity: .25;
+	}
+	to {
+		-webkit-transform: rotate(0deg) scale(.5);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes starsSmallAlt {
+	from {
+		-webkit-transform: rotate(0deg) scale(3);
+		opacity: .1;
+	}
+	to {
+		-webkit-transform: rotate(360deg) scale(.5);
+		opacity: 0;
+	}
+}
+
+
+
+
+/*  high framerate control anim to spot performance issues */
 #anim {
 	width: 200px;
 	height: 10px;

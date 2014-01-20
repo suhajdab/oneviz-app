@@ -86,6 +86,11 @@ html, body {
 	background-size: 100% 200px;
 	text-align: center;
 }
+
+.pie:nth-child(2) .slice .slice-contents {
+  	background: linear-gradient(0, rgba(255,255,255,0), rgba(100,255,150,0.4));
+}
+
 .slice/*:first-child*/ .slice-contents {
 	-webkit-transform: skewY(27deg) rotate(25deg); 
 	/* unskew slice contents */ 
